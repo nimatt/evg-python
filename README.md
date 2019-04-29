@@ -93,9 +93,28 @@ To help you decide on what actions to perform, the ```get_actions``` function is
   <dd>All units controlled by the advesary (including dead units)</dd>
 </dl>
 
+### Coordinate system
+
+In all maps and positions the origo is in the top left corner. X then increases to the right and Y downwards.
+
+    -----------------------
+    | X:0 | X:1 | X:2 | ...
+    | Y:0 | Y:0 | Y:0 | ...
+    -----------------
+    | X:0 | X:1 | ...
+    | Y:1 | Y:1 | ...
+    -----------
+    | X:0 | ...
+    | Y:2 | ...
+    -----------
+    | ...
+    | ...
+
 ## Helper functions
 
 There exist a few functions designed to make the task of developing the unit control logic a bit easier. These functions can be used freely and in any way you see that can benefit.
+
+*NOTE:* Checking the distance to an occupied square will return ```None``` since there is no path that makes it possible for the unit to move to the square.
 
 ## Updating the logic
 
