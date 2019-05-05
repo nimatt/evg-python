@@ -30,7 +30,11 @@ class Unit:
 
   def get_distance(self, x: int, y: int, state):
     if self.dist_map == None:
-      self.dist_map = build_distance_map(self.x, self.y, state.empty_map)
+      unit_empty_map = [[square for square in col] for col in state.floor_map]
+      if self.id != state.unit.id:
+        unit_empty_map[self.x][self.y] = True
+        unit_empty_map[state.unit.x][state.unit.y] = False
+      self.dist_map = build_distance_map(self.x, self.y, unit_empty_map)
 
     return self.dist_map[x][y]
 
